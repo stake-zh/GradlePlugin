@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'com.stake'
+            pom.artifactId = 'dellog'
+            pom.version = '1.0.7'
+            repository(url: uri('../repo'))
+        }
+    }
+}
